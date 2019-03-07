@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: meubanco #nome do banco de dados que a aplicação esta apontando
+  labels:
+    name: mongo
+spec:
+  type: ClusterIP #especifica que este objeto só será acessado pelos objetos que estão dentro do cluster
+  ports:
+    - port: 27017
+      targetPort: 27017
+  selector:
+    name: mongo #define qual pod sera usado, apontando para o metadata > labels > name no arquivo statefulset.yaml

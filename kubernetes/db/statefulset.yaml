@@ -1,0 +1,26 @@
+apiVersion: apps/v1beta1
+kind: StatefulSet
+metadata:
+  name: statefulset-mongodb
+spec:
+  serviceName: meubanco #nome do banco
+  template:
+    metadata:
+      labels:
+        role: mongo
+        environment: test
+    spec:
+      containers:
+        - name: container-mongo
+          image: mongo
+          command:
+            - "mongod"
+          ports:
+            - containerPort: 27017
+          volumeMounts:
+            - name: volume-mongodb
+              mountPath: /data/db
+      volumes:
+        - name: volume-mongodb
+          persistentVolumeClaim:
+            claimName: configuracao-mongodb

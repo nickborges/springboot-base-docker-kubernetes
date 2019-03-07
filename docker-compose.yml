@@ -1,0 +1,46 @@
+version: "3"
+services:
+  springboot-base-docker-kubernetes:
+    image: springboot-docker-kubernetes
+    container_name: api-springboot-base-docker-kubernetes
+    build:
+      dockerfile: ./docker/java-config.dockerfile
+      context: .
+    environment:
+      - SPRING_DATA_MONGODB_URI=mongodb://mongo:27017/meubanco
+    ports:
+      - "8080"
+    depends_on:
+      - mongo
+    links:
+      - mongo
+    networks:
+      - java-docker-network
+    volumes:
+      - /home/gradle/project
+
+  mongo:
+    image: mongo
+    container_name: meubanco
+    #build:
+    #  dockerfile: ./docker/mondo-config.dockerfile
+    #  context: .
+    command: mongod
+    volumes:
+      - mongodb:/data/db
+      - mongodb_config:/data/configdb
+    environment:
+      - MONGO_DATA_DIR=/database/meubanco
+      - MONGO_LOG_DIR=/dev/null
+    ports:
+      - 27017:27017
+    networks:
+      - java-docker-network
+
+volumes:
+  mongodb:
+  mongodb_config:
+
+networks:
+  java-docker-network:
+    driver: bridge
