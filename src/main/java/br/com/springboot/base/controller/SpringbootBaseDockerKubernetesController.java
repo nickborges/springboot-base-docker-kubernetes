@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
  */
 @RestController
 @RequestMapping(Constantes.API)
-public class SpringbootBaseMongoDbController implements SpringbootBaseMongoDbControllerApi{
+public class SpringbootBaseDockerKubernetesController implements SpringbootBaseDockerKubernetesControllerApi {
 
     private final Logger log = LogManager.getLogger(this.getClass());
 

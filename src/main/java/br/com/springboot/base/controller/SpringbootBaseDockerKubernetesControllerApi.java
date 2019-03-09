@@ -19,7 +19,7 @@ import org.springframework.http.ResponseEntity;
         @ApiResponse(code = 503, message = "Erro comunicação gatway."),
         @ApiResponse(code = 504, message = "Serviço inexistente.")
 })
-interface SpringbootBaseMongoDbControllerApi {
+interface SpringbootBaseDockerKubernetesControllerApi {
 
     @ApiOperation(value = "Retrieve a teste.")
     @ApiResponses({
