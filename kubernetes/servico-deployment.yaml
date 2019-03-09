@@ -6,7 +6,7 @@ metadata:
     app: service-api-springboot-docker-kubernetes
     tier: backend
 spec:
-  type: NodePort
+  type: LoadBalancer
   ports:
     - port: 8080
   selector:

@@ -29,6 +29,13 @@ public class SpringbootBaseMongoDbController implements SpringbootBaseMongoDbCon
 
     @Override
     @ResponseBody
+    @GetMapping("/teste")
+    public ResponseEntity<String> teste(){
+        return ResponseEntity.ok("Hello world!");
+    }
+
+    @Override
+    @ResponseBody
     @GetMapping(Constantes.METHODE_VEICULOS)
     public ResponseEntity<ConsultaVeiculosResponse> consultaVeiculos(){
         return ResponseEntity.ok(transporteService.consultaVeiculos());

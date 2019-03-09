@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: deployment-api-springboot-docker-kubernetes
 spec:
-  replicas: 1
+  replicas: 3
   template:
     metadata:
       labels:
@@ -12,7 +12,7 @@ spec:
     spec:
       containers:
         - name: container-api-springboot-docker-kubernetes
-          image: nickkborges/springboot-docker-kubernetes:v1
+          image: nickkborges/springboot-docker-kubernetes:v3
           imagePullPolicy: IfNotPresent
           resources:
             requests:

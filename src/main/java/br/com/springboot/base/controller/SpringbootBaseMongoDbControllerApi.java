@@ -21,6 +21,14 @@ import org.springframework.http.ResponseEntity;
 })
 interface SpringbootBaseMongoDbControllerApi {
 
+    @ApiOperation(value = "Retrieve a teste.")
+    @ApiResponses({
+            @ApiResponse(code = 200,
+                    message = "Operação realizada com sucesso.",
+                    response = String.class)
+    })
+    ResponseEntity<String> teste();
+
     @ApiOperation(value = "Retrieve a list of ConsultaVeiculosResponse.")
     @ApiResponses({
             @ApiResponse(code = 200,
