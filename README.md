@@ -68,7 +68,7 @@
             4. criar o deployment:  kubectl create -f api-deployment.yaml
             5. criar o servico:     kubectl create -f servico-deployment.yaml
             6. obeter o IP externo: kubectl get services
-            7. acessar api:         http://35.198.39.185:8080/api/teste
+            7. acessar api:         http://35.198.8.64:8080/api/teste
             
 
 
