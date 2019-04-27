@@ -11,7 +11,10 @@ import org.springframework.data.mongodb.core.mapping.Document;
  * @TextScore
  */
 @Document(collection="veiculos")
-@AllArgsConstructor @NoArgsConstructor @Getter @Setter @ToString
+@AllArgsConstructor
+@Getter
+@Setter
+@ToString
 public class Veiculos {
 
     @Id

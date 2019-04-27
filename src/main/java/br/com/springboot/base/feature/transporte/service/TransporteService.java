@@ -8,11 +8,9 @@ import br.com.springboot.base.feature.transporte.entity.Veiculos;
 import br.com.springboot.base.feature.transporte.repository.TransporteRepository;
 import com.mongodb.MongoException;
 import lombok.extern.slf4j.Slf4j;
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,17 +24,26 @@ public class TransporteService {
     public ConsultaVeiculosResponse consultaVeiculos(){
 
         try{
-            List veiculos = new ArrayList();//transporteRepository.findAll();
+            List<ConsultaVeiculosResponse.Veiculos> lista = new ArrayList();
+
+            List<Veiculos> veiculos = transporteRepository.findAll();
 
             if(veiculos.size() > 0){
-                ConsultaVeiculosResponse consultaVeiculosResponse = new ConsultaVeiculosResponse();
                 veiculos.forEach(obj -> {
-                    consultaVeiculosResponse.getContent().add(
-                            new ModelMapper().map(obj, br.com.springboot.base.feature.transporte.bean.Veiculos.class)
+                    lista.add(
+                            ConsultaVeiculosResponse.Veiculos
+                                    .builder()
+                                    .descricaoVeiculo(obj.getDescricaoVeiculo())
+                                    .fatorMultiplicador(obj.getFatorMultiplicador().bigDecimalValue().setScale(2))
+                                    .tipoVeiculo(obj.getTipoVeiculo())
+                                    .build()
                     );
                 });
 
-                return consultaVeiculosResponse;
+                return ConsultaVeiculosResponse
+                        .builder()
+                        .content(lista)
+                        .build();
 
             } else {
                 throw new ErrorApiException(
@@ -55,12 +62,20 @@ public class TransporteService {
 
         try{
 
-            Veiculos veiculos = null;//transporteRepository.findByTipoVeiculo(tipo);
+            Veiculos veiculos = transporteRepository.findByTipoVeiculo(tipo);
 
             if(veiculos != null){
-                ConsultaVeiculoTipoResponse consultaVeiculoTipoResponse = new ConsultaVeiculoTipoResponse();
-                consultaVeiculoTipoResponse.setContent(new ModelMapper().map(veiculos, br.com.springboot.base.feature.transporte.bean.Veiculos.class));
-                return consultaVeiculoTipoResponse;
+                ConsultaVeiculoTipoResponse response =
+                        ConsultaVeiculoTipoResponse
+                                .builder()
+                                .content(ConsultaVeiculoTipoResponse.Veiculos
+                                        .builder()
+                                        .descricaoVeiculo(veiculos.getDescricaoVeiculo())
+                                        .fatorMultiplicador(veiculos.getFatorMultiplicador().bigDecimalValue().setScale(2))
+                                        .tipoVeiculo(veiculos.getTipoVeiculo())
+                                        .build())
+                                .build();
+                return response;
 
             } else {
                 throw new ErrorApiException(
