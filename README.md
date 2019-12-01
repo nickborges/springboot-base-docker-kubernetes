@@ -68,8 +68,8 @@
 ## Dockerfile
 
 * 1) Criar o arquivo Dockerfile (colocar dentro do arquivo os dados abaixo), criar o arquivo Dockerfile dentro da raiz do projeto, Obs: o nome do arquivo pode ser outro porem deve ter a extesão, por exemplo (node.dockerfile).
-
-`#imagem base
+```
+#imagem base
 FROM node
 
 #nome do criador da imagem
@@ -93,7 +93,7 @@ ENTRYPOINT npm start
 
 #expões o container na porta definida 
 EXPOSE $PORT
-`
+```
 * 1.1) buildar o Dockerfile e rodar, entrar na pasta raiz do projeto e executar o comando:
 * 1.1.1) `docker build -f Dockerfile -t nickkrasborges/node . ` (constrói e nomeia uma imagem)
 *       `docker build -f Dockerfile . (cria uma imagem a partir de um Dockerfile)`
