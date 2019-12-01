@@ -43,10 +43,10 @@
 * **docker**
 
         1) gradle clean build
-        2) buildar a imagens:       ```docker-compose build```
-        3) logar no docker hub:     ```docker login```
-        4) tag para commit:         ```docker tag number_image_id nickkborges/springboot-docker-kubernetes:v1```
-        5) push no docker hub:      ```docker push nickkborges/springboot-docker-kubernetes```
+        2) buildar a imagens:       docker-compose build
+        3) logar no docker hub:     docker login
+        4) tag para commit:         docker tag number_image_id nickkborges/springboot-docker-kubernetes:v1
+        5) push no docker hub:      docker push nickkborges/springboot-docker-kubernetes
 
 * **kubernetes**
 
