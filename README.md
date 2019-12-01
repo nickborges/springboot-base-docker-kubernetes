@@ -95,8 +95,8 @@ ENTRYPOINT npm start
 EXPOSE $PORT
 ```
 * 1.1) buildar o Dockerfile e rodar, entrar na pasta raiz do projeto e executar o comando:
-        ```docker build -f Dockerfile -t nickkrasborges/node .``` (constrói e nomeia uma imagem)
-        ```docker build -f Dockerfile .``` (cria uma imagem a partir de um Dockerfile)
-* 1.1.2) docker run -d --name meu-container-node -p 8080:3000 nickkrasborges/node
+*       ```docker build -f Dockerfile -t nickkrasborges/node .``` (constrói e nomeia uma imagem)
+*       ```docker build -f Dockerfile .``` (cria uma imagem a partir de um Dockerfile)
+*       ```docker run -d --name meu-container-node -p 8080:3000 nickkrasborges/node```
 
 
