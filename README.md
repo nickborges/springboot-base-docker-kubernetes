@@ -42,27 +42,27 @@
 
 * **docker**
 
-        1. gradle clean build
-        2. buildar a imagens:       docker-compose build
-        3. logar no docker hub:     docker login
-        4. tag para commit:         docker tag number_image_id nickkborges/springboot-docker-kubernetes:v1
-        5. push no docker hub:      docker push nickkborges/springboot-docker-kubernetes
+        1) gradle clean build
+        2) buildar a imagens:       ```docker-compose build```
+        3) logar no docker hub:     ```docker login```
+        4) tag para commit:         ```docker tag number_image_id nickkborges/springboot-docker-kubernetes:v1```
+        5) push no docker hub:      ```docker push nickkborges/springboot-docker-kubernetes```
 
 * **kubernetes**
 
         LOCAL:
-            1. criar o deployment:      sudo kubectl create -f api-deployment.yaml
-            2. criar o servico:         sudo kubectl create -f servico-deployment.yaml
-            3. obter a url:             sudo minikube service service-api-springboot-docker-kubernetes --url
+            1) criar o deployment:      sudo kubectl create -f api-deployment.yaml
+            2) criar o servico:         sudo kubectl create -f servico-deployment.yaml
+            3) obter a url:             sudo minikube service service-api-springboot-docker-kubernetes --url
         
         GCLOUD:
-            1. crair o cluster:     http://cloud.google.com
-            2. login no gcloud:     gcloud auth login
-            3. conectar no cluster: gcloud container clusters get-credentials springboot-base-docker-kubernetes --zone southamerica-east1-a --project springboot-docker-kubernetes
-            4. criar o deployment:  kubectl create -f api-deployment.yaml
-            5. criar o servico:     kubectl create -f servico-deployment.yaml
-            6. obeter o IP externo: kubectl get services
-            7. acessar api:         http://35.198.8.64:8080/api/teste
+            1) crair o cluster:     http://cloud.google.com
+            2) login no gcloud:     gcloud auth login
+            3) conectar no cluster: gcloud container clusters get-credentials springboot-base-docker-kubernetes --zone southamerica-east1-a --project springboot-docker-kubernetes
+            4) criar o deployment:  kubectl create -f api-deployment.yaml
+            5) criar o servico:     kubectl create -f servico-deployment.yaml
+            6) obeter o IP externo: kubectl get services
+            7) acessar api:         http://35.198.8.64:8080/api/teste
             
 
 ## Dockerfile
@@ -95,8 +95,8 @@ ENTRYPOINT npm start
 EXPOSE $PORT
 ```
 * 1.1) buildar o Dockerfile e rodar, entrar na pasta raiz do projeto e executar o comando:
-* 1.1.1) `docker build -f Dockerfile -t nickkrasborges/node . ` (constrói e nomeia uma imagem)
-*       `docker build -f Dockerfile . (cria uma imagem a partir de um Dockerfile)`
+        ```docker build -f Dockerfile -t nickkrasborges/node .``` (constrói e nomeia uma imagem)
+        ```docker build -f Dockerfile .``` (cria uma imagem a partir de um Dockerfile)
 * 1.1.2) docker run -d --name meu-container-node -p 8080:3000 nickkrasborges/node
 
 
