@@ -38,8 +38,8 @@ EXPOSE $PORT
 ```
 ## Docker compose
 * **docker-compose.yml** responsável por conter as informações para construir a imagem, com base no **dockerfile**
-
-
+  
+  
 ## DOCKER - KUBERNETES - Google Cloud
 
 * **docker**
