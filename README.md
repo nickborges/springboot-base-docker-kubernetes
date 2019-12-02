@@ -1,4 +1,4 @@
-
+![diagrama kubernetes](https://drive.google.com/drive/my-drive)
 ## ETRUTURA DE DADOS 
     base de dados: mongodb
     nome do banco: meubanco
