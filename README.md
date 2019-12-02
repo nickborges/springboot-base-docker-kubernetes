@@ -1,4 +1,4 @@
-![diagrama kubernetes](https://drive.google.com/drive/my-drive)
+![diagrama kubernetes](https://github.com/nickkrasborges/springboot-base-docker-kubernetes/blob/master/diagrama_kubernetes.png)
 ## ETRUTURA DE DADOS 
     base de dados: mongodb
     nome do banco: meubanco
