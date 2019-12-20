@@ -5,7 +5,7 @@
 #imagem base
 #FROM gradle:jdk8
 #FROM openjdk:8-jdk-alpine
-FROM debian:jessie
+FROM arm32v7:ubuntu
 
 #nome do criador da imagem
 MAINTAINER Nick Kras Borges
