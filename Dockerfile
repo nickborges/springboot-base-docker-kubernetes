@@ -20,7 +20,8 @@ COPY . /usr/src/app
 WORKDIR /user/src/app
 
 #comando executado durante o build da imagem
-RUN gradle clean build
+#RUN gradle clean build
+RUN ./gradlew build
 
 #adiciona o jar buildado
 ADD build/libs/springboot-base-docker-kubernetes-1.0.0.jar springboot-base-docker-kubernetes-1.0.0.jar
