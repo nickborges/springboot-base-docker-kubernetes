@@ -9,7 +9,7 @@ MAINTAINER Nick Kras Borges
 #ENV PORT=8085
 
 #copia o código fonte para dentro da imagem(. copia tudo que ta dentro da pasta definida)
-COPY . /user/src/app
+COPY . /usr/src/app
 
 #diretrório raiz do container(RUN e ENTRYPOINT são executados dentro deste diretório)
 WORKDIR /user/src/app
