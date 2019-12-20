@@ -18,12 +18,12 @@ WORKDIR /user/src/app
 #RUN gradle clean build
 
 #adiciona o jar buildado
-ADD build/libs/springboot-base-docker-kubernetes-1.0.0.jar springboot-base-docker-kubernetes-1.0.0.jar
+#ADD build/libs/springboot-base-docker-kubernetes-1.0.0.jar springboot-base-docker-kubernetes-1.0.0.jar
 
 #comando executado após o start do container
-ENTRYPOINT ["gradle", "build"]
+#ENTRYPOINT ["gradle", "build"]
 
-ENTRYPOINT ["java", "-jar", "springboot-base-docker-kubernetes-1.0.0.jar"]
+#ENTRYPOINT ["java", "-jar", "springboot-base-docker-kubernetes-1.0.0.jar"]
 
 #expões o container na porta definida
 EXPOSE 8080
