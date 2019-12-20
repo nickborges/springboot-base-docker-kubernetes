@@ -18,6 +18,7 @@ WORKDIR /user/src/app
 
 #comando executado durante o build da imagem
 RUN \
+    sudo apt install curl && \
     curl -L https://services.gradle.org/distributions/gradle-2.5-bin.zip -o gradle-2.5-bin.zip && \
     unzip gradle-2.5-bin.zip && \
     rm gradle-2.5-bin.zip
