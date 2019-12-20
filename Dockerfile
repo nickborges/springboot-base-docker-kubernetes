@@ -4,8 +4,8 @@
 
 #imagem base
 #FROM gradle:jdk8
-#FROM openjdk:8-jdk-alpine
-FROM java:8-jre
+FROM openjdk:8-jdk-alpine
+#FROM java:8-jre
 
 #nome do criador da imagem
 MAINTAINER Nick Kras Borges
