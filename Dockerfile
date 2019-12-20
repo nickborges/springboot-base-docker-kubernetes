@@ -9,10 +9,10 @@ MAINTAINER Nick Kras Borges
 #ENV PORT=8085
 
 #copia o código fonte para dentro da imagem(. copia tudo que ta dentro da pasta definida)
-COPY . /home/gradle/project
+COPY . /user/src/app
 
 #diretrório raiz do container(RUN e ENTRYPOINT são executados dentro deste diretório)
-WORKDIR /home/gradle/project
+WORKDIR /user/src/app
 
 #comando executado durante o build da imagem
 #RUN gradle clean build
