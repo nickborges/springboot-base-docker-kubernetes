@@ -17,22 +17,19 @@ COPY . /usr/src/app
 WORKDIR /user/src/app
 
 #comando executado durante o build da imagem
-#RUN gradle clean build
-RUN \
-    apt-get update && \
-    apt-get -y install unzip openjdk-8-jdk
-    
 RUN \
     cd /usr/local && \
     curl -L https://services.gradle.org/distributions/gradle-2.5-bin.zip -o gradle-2.5-bin.zip && \
     unzip gradle-2.5-bin.zip && \
     rm gradle-2.5-bin.zip
+    
+RUN gradle clean build
 
 #variáveis de ambiente
 ENV JAVA_ENV=producao
 ENV PORT=8085
-ENV GRADLE_HOME=/usr/local/gradle-2.5
-ENV PATH=$PATH:$GRADLE_HOME/bin JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+ENV GRADLE_HOME=/app/gradle-2.5
+ENV PATH=$PATH:$GRADLE_HOME/bin
 
 #adiciona o jar buildado
 ADD build/libs/springboot-base-docker-kubernetes-1.0.0.jar springboot-base-docker-kubernetes-1.0.0.jar
