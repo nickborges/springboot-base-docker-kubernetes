@@ -5,16 +5,10 @@
 #imagem base
 #FROM gradle:jdk8
 #FROM openjdk:8-jdk-alpine
-FROM ubuntu:16.04
+FROM java:8-jre
 
 #nome do criador da imagem
 MAINTAINER Nick Kras Borges
-
-#variáveis de ambiente
-ENV JAVA_ENV=producao
-ENV PORT=8085
-ENV GRADLE_HOME=/app/gradle-2.4
-ENV PATH=$PATH:$GRADLE_HOME/bin
 
 #copia o código fonte para dentro da imagem(. copia tudo que ta dentro da pasta definida)
 COPY . /usr/src/app
@@ -24,12 +18,21 @@ WORKDIR /user/src/app
 
 #comando executado durante o build da imagem
 #RUN gradle clean build
-RUN curl -L https://services.gradle.org/distributions/gradle-2.4-bin.zip -o gradle-2.4-bin.zip
-RUN apt-get install -y unzip
-RUN unzip gradle-2.4-bin.zip
-RUN echo 'export GRADLE_HOME=/app/gradle-2.4' >> $HOME/.bashrc
-RUN echo 'export PATH=$PATH:$GRADLE_HOME/bin' >> $HOME/.bashrc
-RUN /bin/bash -c "source $HOME/.bashrc"
+RUN \
+    apt-get update && \
+    apt-get -y install unzip openjdk-8-jdk
+    
+RUN \
+    cd /usr/local && \
+    curl -L https://services.gradle.org/distributions/gradle-2.5-bin.zip -o gradle-2.5-bin.zip && \
+    unzip gradle-2.5-bin.zip && \
+    rm gradle-2.5-bin.zip
+
+#variáveis de ambiente
+ENV JAVA_ENV=producao
+ENV PORT=8085
+ENV GRADLE_HOME=/usr/local/gradle-2.5
+ENV PATH=$PATH:$GRADLE_HOME/bin JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 
 #adiciona o jar buildado
 ADD build/libs/springboot-base-docker-kubernetes-1.0.0.jar springboot-base-docker-kubernetes-1.0.0.jar
