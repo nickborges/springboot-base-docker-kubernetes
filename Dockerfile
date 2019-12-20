@@ -12,6 +12,8 @@ MAINTAINER Nick Kras Borges
 #variáveis de ambiente
 ENV JAVA_ENV=producao
 ENV PORT=8085
+ENV GRADLE_HOME=/app/gradle-2.4
+ENV PATH=$PATH:$GRADLE_HOME/bin
 
 #copia o código fonte para dentro da imagem(. copia tudo que ta dentro da pasta definida)
 COPY . /usr/src/app
@@ -21,7 +23,12 @@ WORKDIR /user/src/app
 
 #comando executado durante o build da imagem
 #RUN gradle clean build
-RUN ./gradlew build
+RUN curl -L https://services.gradle.org/distributions/gradle-2.4-bin.zip -o gradle-2.4-bin.zip
+RUN apt-get install -y unzip
+RUN unzip gradle-2.4-bin.zip
+RUN echo 'export GRADLE_HOME=/app/gradle-2.4' >> $HOME/.bashrc
+RUN echo 'export PATH=$PATH:$GRADLE_HOME/bin' >> $HOME/.bashrc
+RUN /bin/bash -c "source $HOME/.bashrc"
 
 #adiciona o jar buildado
 ADD build/libs/springboot-base-docker-kubernetes-1.0.0.jar springboot-base-docker-kubernetes-1.0.0.jar
