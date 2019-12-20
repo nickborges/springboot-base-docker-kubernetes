@@ -1,9 +1,10 @@
-FROM aarch64/alpine:edge
+#FROM aarch64/alpine:edge
 #RUN apk --update add nodejs
 #CMD ["node"]
 
 #imagem base
 #FROM gradle:jdk8
+FROM openjdk:8-jdk-alpine
 
 #nome do criador da imagem
 MAINTAINER Nick Kras Borges
