@@ -5,7 +5,7 @@
 #imagem base
 #FROM gradle:jdk8
 #FROM openjdk:8-jdk-alpine
-FROM arm32v7:ubuntu
+FROM ubuntu:16.04
 
 #nome do criador da imagem
 MAINTAINER Nick Kras Borges
