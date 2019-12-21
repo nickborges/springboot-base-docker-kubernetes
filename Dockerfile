@@ -20,4 +20,3 @@ ENV PORT=8085
 
 #expões o container na porta definida
 EXPOSE 8080
-
