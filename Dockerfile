@@ -37,7 +37,7 @@ ENTRYPOINT ["gradle", "build"]
 ENTRYPOINT ["java", "-jar", "springboot-base-docker-kubernetes-1.0.0.jar"]
 
 #adiciona o jar buildado
-ADD build/libs/springboot-base-docker-kubernetes-1.0.0.jar springboot-base-docker-kubernetes-1.0.0.jar
+#ADD build/libs/springboot-base-docker-kubernetes-1.0.0.jar springboot-base-docker-kubernetes-1.0.0.jar
 
 #expões o container na porta definida
 EXPOSE 8080
