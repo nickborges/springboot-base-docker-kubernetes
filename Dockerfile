@@ -35,7 +35,7 @@ ENV PATH=$PATH:$GRADLE_HOME/bin
 ADD build/libs/springboot-base-docker-kubernetes-1.0.0.jar springboot-base-docker-kubernetes-1.0.0.jar
 
 #comando executado após o start do container
-ENTRYPOINT ["gradle", "build"]
+#ENTRYPOINT ["gradle", "build"]
 
 ENTRYPOINT ["java", "-jar", "springboot-base-docker-kubernetes-1.0.0.jar"]
 
