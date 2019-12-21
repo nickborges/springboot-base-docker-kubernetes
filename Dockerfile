@@ -17,6 +17,7 @@ COPY . /usr/src/app
 WORKDIR /user/src/app
 
 #comando executado durante o build da imagem
+RUN apk add --no-cache curl tar bash procps
 RUN \
     apt-get install curl && \
     curl -L https://services.gradle.org/distributions/gradle-2.5-bin.zip -o gradle-2.5-bin.zip && \
