@@ -12,6 +12,10 @@ MAINTAINER Nick Kras Borges
 
 #copia o código fonte para dentro da imagem(. copia tudo que ta dentro da pasta definida)
 COPY . /usr/src/app
+COPY gradlew .
+COPY gradle gradle
+COPY build.gradle .
+
 
 #diretrório raiz do container(RUN e ENTRYPOINT são executados dentro deste diretório)
 WORKDIR /user/src/app
@@ -23,7 +27,7 @@ RUN \
     unzip gradle-5.0-bin.zip && \
     rm gradle-5.0-bin.zip
 
-RUN ./gradlew build    
+RUN ./gradlew dependencies 
 #RUN gradle clean build
 
 #variáveis de ambiente
