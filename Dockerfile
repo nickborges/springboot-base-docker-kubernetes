@@ -22,7 +22,8 @@ RUN \
     curl -L https://services.gradle.org/distributions/gradle-5.0-bin.zip -o gradle-5.0-bin.zip && \
     unzip gradle-5.0-bin.zip && \
     rm gradle-5.0-bin.zip
-    
+
+RUN ./gradlew build    
 #RUN gradle clean build
 
 #variáveis de ambiente
