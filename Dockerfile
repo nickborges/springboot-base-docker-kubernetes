@@ -24,7 +24,7 @@ RUN ls -la /usr/src/app
 #    unzip gradle-5.0-bin.zip && \
 #    rm gradle-5.0-bin.zip
 
-RUN ./usr/src/app/gradlew dependencies 
+RUN /usr/src/app/.gradlew dependencies 
 #RUN gradle clean build
 
 #variáveis de ambiente
