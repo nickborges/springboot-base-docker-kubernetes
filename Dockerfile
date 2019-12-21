@@ -24,7 +24,7 @@ RUN ls -la /usr/src/app
 #    unzip gradle-5.0-bin.zip && \
 #    rm gradle-5.0-bin.zip
 RUN chmod 777 /usr/src/app/gradlew
-RUN /usr/src/app/.gradlew build 
+RUN /usr/src/app/gradlew build 
 #RUN gradle clean build
 
 #variáveis de ambiente
