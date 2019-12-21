@@ -11,7 +11,6 @@ COPY . /usr/src/app
 WORKDIR /user/src/app
 
 #comando executado durante o build da imagem
-RUN ls -la /usr/src/app
 RUN chmod 777 /usr/src/app/gradlew
 RUN /usr/src/app/gradlew build 
 
