@@ -19,7 +19,6 @@ WORKDIR /user/src/app
 #comando executado durante o build da imagem
 RUN apk add --no-cache curl tar bash procps
 RUN \
-    apt-get install curl && \
     wget https://services.gradle.org/distributions/gradle-5.0-bin.zip -o gradle-5.0-bin.zip && \
     unzip gradle-5.0-bin.zip && \
     rm gradle-5.0-bin.zip
