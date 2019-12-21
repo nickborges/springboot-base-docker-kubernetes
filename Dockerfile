@@ -20,16 +20,16 @@ WORKDIR /user/src/app
 RUN apk add --no-cache curl tar bash procps
 RUN \
     apt-get install curl && \
-    curl -L https://services.gradle.org/distributions/gradle-2.5-bin.zip -o gradle-2.5-bin.zip && \
-    unzip gradle-2.5-bin.zip && \
-    rm gradle-2.5-bin.zip
+    wget https://services.gradle.org/distributions/gradle-5.0-bin.zip -o gradle-5.0-bin.zip && \
+    unzip gradle-5.0-bin.zip && \
+    rm gradle-5.0-bin.zip
     
 RUN gradle clean build
 
 #variáveis de ambiente
 ENV JAVA_ENV=producao
 ENV PORT=8085
-ENV GRADLE_HOME=/app/gradle-2.5
+ENV GRADLE_HOME=/app/gradle-5.0
 ENV PATH=$PATH:$GRADLE_HOME/bin
 
 #adiciona o jar buildado
