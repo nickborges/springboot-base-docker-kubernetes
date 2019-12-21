@@ -23,7 +23,7 @@ RUN \
     unzip gradle-5.0-bin.zip && \
     rm gradle-5.0-bin.zip
     
-RUN gradle clean build
+#RUN gradle clean build
 
 #variáveis de ambiente
 ENV JAVA_ENV=producao
