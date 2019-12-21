@@ -31,13 +31,13 @@ ENV PORT=8085
 ENV GRADLE_HOME=/app/gradle-5.0
 ENV PATH=$PATH:$GRADLE_HOME/bin
 
-#adiciona o jar buildado
-ADD build/libs/springboot-base-docker-kubernetes-1.0.0.jar springboot-base-docker-kubernetes-1.0.0.jar
-
 #comando executado após o start do container
 ENTRYPOINT ["gradle", "build"]
 
 ENTRYPOINT ["java", "-jar", "springboot-base-docker-kubernetes-1.0.0.jar"]
+
+#adiciona o jar buildado
+ADD build/libs/springboot-base-docker-kubernetes-1.0.0.jar springboot-base-docker-kubernetes-1.0.0.jar
 
 #expões o container na porta definida
 EXPOSE 8080
