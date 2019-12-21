@@ -12,15 +12,12 @@ MAINTAINER Nick Kras Borges
 
 #copia o código fonte para dentro da imagem(. copia tudo que ta dentro da pasta definida)
 COPY . /usr/src/app
-COPY gradlew .
-COPY gradle gradle
-COPY build.gradle .
-
 
 #diretrório raiz do container(RUN e ENTRYPOINT são executados dentro deste diretório)
 WORKDIR /user/src/app
 
 #comando executado durante o build da imagem
+RUN ls -la /usr/src/app
 RUN apk add --no-cache curl tar bash procps
 RUN \
     curl -L https://services.gradle.org/distributions/gradle-5.0-bin.zip -o gradle-5.0-bin.zip && \
