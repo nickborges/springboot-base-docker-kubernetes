@@ -8,7 +8,7 @@ MAINTAINER Nick Kras Borges
 COPY . /usr/src/app
 
 #diretrório raiz do container(RUN e ENTRYPOINT são executados dentro deste diretório)
-WORKDIR /user/src/app
+WORKDIR /usr/src/app
 
 #comando executado durante o build da imagem
 RUN chmod 777 /usr/src/app/gradlew
