@@ -24,3 +24,4 @@ EXPOSE 8080
 #default command
 CMD ./gradlew clean build
 CMD java -jar /usr/src/app/build/libs/springboot-base-docker-kubernetes-1.0.0.jar
+
