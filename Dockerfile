@@ -12,14 +12,14 @@ WORKDIR /usr/src/app
 
 #comando executado durante o build da imagem
 RUN chmod 777 /usr/src/app/gradlew
-RUN /usr/src/app/gradlew build 
+RUN /usr/src/app/gradlew build
+RUN ls -la /usr/src/app/
 
 #variáveis de ambiente
 ENV JAVA_ENV=producao
 ENV PORT=8085
 
 #comando executado após o start do container
-ENTRYPOINT ["cat", "/usr/src/app/build/libs/"]
 ENTRYPOINT ["java", "-jar", "/usr/src/app/build/libs/springboot-base-docker-kubernetes-1.0.0.jar"]
 
 #expões o container na porta definida
