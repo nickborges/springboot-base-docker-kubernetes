@@ -19,11 +19,9 @@ ENV JAVA_ENV=producao
 ENV PORT=8085
 
 #adiciona o jar buildado
-ADD build/libs/springboot-base-docker-kubernetes-1.0.0.jar springboot-base-docker-kubernetes-1.0.0.jar
+ADD /usr/src/app/build/libs/springboot-base-docker-kubernetes-1.0.0.jar springboot-base-docker-kubernetes-1.0.0.jar
 
 #comando executado após o start do container
-ENTRYPOINT ["gradle", "build"]
-
 ENTRYPOINT ["java", "-jar", "springboot-base-docker-kubernetes-1.0.0.jar"]
 
 #expões o container na porta definida
