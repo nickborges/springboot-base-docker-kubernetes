@@ -13,7 +13,7 @@ WORKDIR /usr/src/app
 #comando executado durante o build da imagem
 RUN chmod 777 /usr/src/app/gradlew
 RUN /usr/src/app/gradlew build
-RUN ls -la /usr/src/app/
+RUN ls -la /usr/src/app/build/libs
 
 #variáveis de ambiente
 ENV JAVA_ENV=producao
